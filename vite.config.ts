@@ -15,7 +15,8 @@ export default defineConfig({
       const entries = await readdir(directory, { recursive: true, withFileTypes: true });
       // demo/ はデモ動画（アプリは使わない）なので端末にためない
       const files = entries.filter(entry => entry.isFile() && entry.name !== 'sw.js')
-        .map(entry => relative(directory, resolve(entry.parentPath, entry.name)).replaceAll('\\', '/')).sort();
+        .map(entry => relative(directory, resolve(entry.parentPath, entry.name)).replaceAll('\\', '/'))
+        .filter(file => !file.startsWith('demo/')).sort();
       const digest = createHash('sha256');
       for (const file of files) { digest.update(file); digest.update(await readFile(resolve(directory, file))); }
       const template = await readFile('scripts/sw-template.js', 'utf8');
