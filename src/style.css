@@ -34,7 +34,7 @@ body {
   line-height: 1.7;
 }
 .top {
-  position: sticky; top: 0; z-index: 1000;
+  position: sticky; top: 0; z-index: 2000;
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   padding: 10px 16px; background: var(--accent); color: var(--accent-ink);
 }

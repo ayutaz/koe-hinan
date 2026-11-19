@@ -198,8 +198,22 @@ async function main(): Promise<void> {
     setStatus('where-status', 'データを読み込めませんでした。通信のある所で一度開いてください。');
   }
   void refreshPrepared();
-  // テストと計測用
-  Object.assign(window, { koeHinan: { evaluate: (p: Point) => data && evaluate(p, data), buildText } });
+  // テスト・計測・デモ動画用（画面には出ない）
+  Object.assign(window, { koeHinan: {
+    evaluate: (p: Point) => data && evaluate(p, data),
+    buildText,
+    lastSpeech: () => lastSpeech,
+    mapPoint: (lat: number, lon: number) => map?.latLngToContainerPoint([lat, lon]),
+    /** 文を端末の中で合成し、WAV を base64 で返す（再生はしない）。 */
+    synthWav: async (text: string) => {
+      const tts = await loadVoice();
+      const audio = await tts.synthesize(text, { language: 'ja', lengthScale: 1.25, ssml: false });
+      const bytes = new Uint8Array(audio.toWav());
+      let binary = '';
+      for (let i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+      return btoa(binary);
+    },
+  } });
 }
 
 void main();
