@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="圏外でも地名を正しく読む、声の避難ガイド（練馬区・洪水）。ブラウザの中だけで、浸水の想定と近くの避難場所を声で伝えます。">
+  <meta name="theme-color" content="#0b4f8a">
+  <title>声の避難ガイド（練馬区）</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b4f8a'/%3E%3Cpath d='M9 12h4l6-5v18l-6-5H9z' fill='white'/%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="top">
+    <h1>声の避難ガイド <span class="area">練馬区・洪水</span></h1>
+    <button id="font" class="ghost" type="button" aria-pressed="false">文字を大きく</button>
+  </header>
+
+  <main>
+    <section class="card" id="prepare-card" aria-labelledby="prepare-title">
+      <h2 id="prepare-title">1. 最初に準備する（通信のある所で1回）</h2>
+      <p>アプリ・避難場所と浸水想定のデータ・声を、この端末にためます。合わせて約110MBなので Wi-Fi で行ってください。準備のあとは、機内モードや圏外でも使えます。</p>
+      <button id="prepare" class="primary" type="button">準備する</button>
+      <p id="prepare-status" class="status" role="status">まだ準備していません。</p>
+    </section>
+
+    <section class="card" aria-labelledby="where-title">
+      <h2 id="where-title">2. 場所を決める</h2>
+      <div class="actions">
+        <button id="locate" class="primary big" type="button">今いる場所で案内する</button>
+        <button id="pick-map" class="secondary" type="button">地図で選ぶ</button>
+      </div>
+      <label class="town">町から選ぶ
+        <select id="town"><option value="">町を選んでください</option></select>
+      </label>
+      <p id="where-status" class="status" role="status"></p>
+      <div id="map" class="map" hidden aria-label="地図。押した場所で案内します"></div>
+      <p id="map-note" class="note" hidden>地図を押すと、その場所で案内します。通信がないときは背景の地図は出ませんが、浸水想定（青）と避難場所（点）は出ます。</p>
+    </section>
+
+    <section class="card result" id="result-card" hidden aria-labelledby="result-title">
+      <h2 id="result-title">3. 案内</h2>
+      <div id="result" aria-live="polite"></div>
+      <div class="actions">
+        <button id="replay" class="primary" type="button">もう一度読む</button>
+        <button id="stop" class="secondary" type="button">止める</button>
+      </div>
+      <p id="speech-status" class="status" role="status"></p>
+      <h3>近くの避難場所（洪水）</h3>
+      <ol id="nearby" class="nearby"></ol>
+    </section>
+
+    <section class="card notes" aria-labelledby="notes-title">
+      <h2 id="notes-title">注意と出典</h2>
+      <ul>
+        <li>指定緊急避難場所は、災害の種類ごとに指定されています。この案内は<strong>洪水</strong>に指定された場所だけを選びます。</li>
+        <li>避難場所のデータは区市町村が登録したもので、最新でない場合や載っていない場合があります。<strong>最新かつ詳しい状況は、必ず練馬区に確かめてください。</strong></li>
+        <li>浸水の想定は、石神井川と神田川の洪水浸水想定区域（想定最大規模）です。ほかの川や、大雨で下水があふれる浸水（内水氾濫）の想定は含みません。距離と方角は直線で、道のりではありません。</li>
+        <li>避難の呼びかけと、その時の情報は、練馬区と気象庁などの発表に従ってください。</li>
+      </ul>
+      <details>
+        <summary>使っているデータとライセンス</summary>
+        <ul id="sources"></ul>
+        <ul>
+          <li>施設名の読み仮名: 練馬区「AED設置箇所一覧」「投票所一覧」の読み（CC BY 4.0）と、デジタル庁「アドレス・ベース・レジストリ」の町字の読みを突き合わせて作成（<a href="https://github.com/ayutaz/koe-hinan/blob/main/data/readings.csv">読み仮名の表</a>）。</li>
+          <li>背景の地図: <a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル</a>（通信があるときだけ）</li>
+          <li>声: Piper Plus:つくよみちゃん（<a href="https://huggingface.co/ayousanz/piper-plus-tsukuyomi-chan">モデルと利用条件</a>・<a href="https://tyc.rei-yumesaki.net/material/corpus/#terms3">つくよみちゃんコーパスの規約</a>）。音声合成は <a href="https://github.com/ayutaz/piper-plus">piper-plus</a>。</li>
+          <li>アプリのソースコード: <a href="https://github.com/ayutaz/koe-hinan">github.com/ayutaz/koe-hinan</a>（Apache-2.0）</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

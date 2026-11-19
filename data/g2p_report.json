@@ -1,0 +1,342 @@
+{
+ "checkedAt": "2026-11-19",
+ "engine": "piper-plus 0.9.1 WasmPhonemizer（OpenJTalk 系の日本語辞書）・声 piper-plus-tsukuyomi-chan の config",
+ "shelters": 163,
+ "sheltersPronouncedDifferently": 29,
+ "towns": 41,
+ "townsPronouncedDifferently": 9,
+ "sheltersOnlyShuukaijo": 21,
+ "differentShelters": [
+  {
+   "id": "131202200002",
+   "name": "小竹小学校",
+   "kana": "コタケショウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "k o d a k e  o o g a  k o o",
+   "asKana": "k o t a k e  o o g a  k o o"
+  },
+  {
+   "id": "131202200015",
+   "name": "南町小学校",
+   "kana": "ミナミチョウショウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "m i n a m i m a  I  o o g a  k o o",
+   "asKana": "m i n a m i  o o  o o g a  k o o"
+  },
+  {
+   "id": "131202200024",
+   "name": "向山小学校",
+   "kana": "コウヤマショウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "m u k a i y a m a  o o g a  k o o",
+   "asKana": "k o o y a m a  o o g a  k o o"
+  },
+  {
+   "id": "131202200025",
+   "name": "豊溪小学校",
+   "kana": "ホウケイショウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "y u t a k a t a n i  o o g a  k o o",
+   "asKana": "h o o k e i  o o g a  k o o"
+  },
+  {
+   "id": "131202200026",
+   "name": "旭町小学校",
+   "kana": "アサヒチョウショウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "a s a h i m a  I  o o g a  k o o",
+   "asKana": "a s a h I  o o  o o g a  k o o"
+  },
+  {
+   "id": "131202200028",
+   "name": "春日小学校",
+   "kana": "カスガショウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": " u  j i  U  o o g a  k o o",
+   "asKana": "k a s u g a  o o g a  k o o"
+  },
+  {
+   "id": "131202200029",
+   "name": "光が丘四季の香小学校",
+   "kana": "ヒカリガオカシキノカオリショウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "h I k a r i g a o k a  I k i n o k o o  o o g a  k o o",
+   "asKana": "h I k a r i g a o k a  I k i n o k a o r i  o o g a  k o o"
+  },
+  {
+   "id": "131202200035",
+   "name": "石神井東小学校",
+   "kana": "シャクジイヒガシショウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "i  i g a m i i t o o  o o g a  k o o",
+   "asKana": " a k u j i i h i g a  I  o o g a  k o o"
+  },
+  {
+   "id": "131202200042",
+   "name": "谷原小学校",
+   "kana": "ヤワラショウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "t a n i h a r a  o o g a  k o o",
+   "asKana": "y a w a r a  o o g a  k o o"
+  },
+  {
+   "id": "131202200060",
+   "name": "泉新小学校",
+   "kana": "センシンショウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "i z u m i  i   o o g a  k o o",
+   "asKana": "s e   i   o o g a  k o o"
+  },
+  {
+   "id": "131202200067",
+   "name": "豊玉中学校",
+   "kana": "トヨタマチュウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "t o y o t a m a n a k a g a  k o o",
+   "asKana": "t o y o t a m a  u u g a  k o o"
+  },
+  {
+   "id": "131202200074",
+   "name": "北町中学校",
+   "kana": "キタマチチュウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "k I t a m a  i j u u g a  k o o",
+   "asKana": "k I t a m a  I  u u g a  k o o"
+  },
+  {
+   "id": "131202200076",
+   "name": "練馬東中学校",
+   "kana": "ネリマヒガシチュウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "n e r i m a h i g a  i n a k a g a  k o o",
+   "asKana": "n e r i m a h i g a  I  u u g a  k o o"
+  },
+  {
+   "id": "131202200079",
+   "name": "豊渓中学校",
+   "kana": "ホウケイチュウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "y u t a k a k e e  u u g a  k o o",
+   "asKana": "h o o k e i  u u g a  k o o"
+  },
+  {
+   "id": "131202200084",
+   "name": "石神井東中学校",
+   "kana": "シャクジイヒガシチュウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "i  i g a m i i t o o  u u g a  k o o",
+   "asKana": " a k u j i i h i g a  I  u u g a  k o o"
+  },
+  {
+   "id": "131202200086",
+   "name": "石神井南中学校",
+   "kana": "シャクジイミナミチュウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": " a k u j i i n a   u u g a  k o o",
+   "asKana": " a k u j i i m i n a m i  u u g a  k o o"
+  },
+  {
+   "id": "131202200089",
+   "name": "谷原中学校",
+   "kana": "ヤワラチュウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "t a n i h a r a  u u g a  k o o",
+   "asKana": "y a w a r a  u u g a  k o o"
+  },
+  {
+   "id": "131202200093",
+   "name": "大泉西中学校",
+   "kana": "オオイズミニシチュウガッコウ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "o o i z u m i n i  i n a k a g a  k o o",
+   "asKana": "o o i z u m i n i  I  u u g a  k o o"
+  },
+  {
+   "id": "131202200100",
+   "name": "小竹地域集会所",
+   "kana": "コタケチイキシュウカイジョ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "k o d a k e  i i k I  u u k a i  o",
+   "asKana": "k o t a k e  i i k I  u u k a i j o"
+  },
+  {
+   "id": "131202200101",
+   "name": "栄町敬老館",
+   "kana": "サカエチョウケイロウカン",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "s a k a e m a  I k e e r o o k a ",
+   "asKana": "s a k a e  o o k e i r o o k a "
+  },
+  {
+   "id": "131202200110",
+   "name": "向山庭園",
+   "kana": "コウヤマテイエン",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "m u k a i y a m a t e e e ",
+   "asKana": "k o o y a m a t e i e "
+  },
+  {
+   "id": "131202200111",
+   "name": "向山地域集会所",
+   "kana": "コウヤマチイキシュウカイジョ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "m u k a i y a m a  i i k I  u u k a i  o",
+   "asKana": "k o o y a m a  i i k I  u u k a i j o"
+  },
+  {
+   "id": "131202200119",
+   "name": "旭町南地区区民館",
+   "kana": "アサヒチョウミナミチククミンカン",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "a s a h i m a  i m i n a m i  I k u k u m i  k a ",
+   "asKana": "a s a h I  o o m i n a m i  I k u k u m i  k a "
+  },
+  {
+   "id": "131202200126",
+   "name": "旭町北地区区民館",
+   "kana": "アサヒチョウキタチククミンカン",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "a s a h i m a  I k i t a j i k U k u m i  k a ",
+   "asKana": "a s a h I  o o k I t a  I k u k u m i  k a "
+  },
+  {
+   "id": "131202200127",
+   "name": "旭町地域集会所",
+   "kana": "アサヒチョウチイキシュウカイジョ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "a s a h i m a  I  i i k I  u u k a i  o",
+   "asKana": "a s a h I  o o  i i k I  u u k a i j o"
+  },
+  {
+   "id": "131202200135",
+   "name": "高野台地域集会所",
+   "kana": "タカノダイチイキシュウカイジョ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "k o o y a d a i  i i k I  u u k a i  o",
+   "asKana": "t a k a n o d a i  i i k i  u u k a i j o"
+  },
+  {
+   "id": "131202200136",
+   "name": "谷原地域集会所",
+   "kana": "ヤハラチイキシュウカイジョ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "t a n i h a r a  i i k I  u u k a i  o",
+   "asKana": "y a h a r a  i i k I  u u k a i j o"
+  },
+  {
+   "id": "131202200149",
+   "name": "あすはステーション大泉",
+   "kana": "アスハステーションオオイズミ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "a s u w a s U t e e  o  o o i z u m i",
+   "asKana": "a s U h a s U t e e  o  o o i z u m i"
+  },
+  {
+   "id": "131202200156",
+   "name": "大泉学園町地域集会所",
+   "kana": "オオイズミガクエンチョウチイキシュウカイジョ",
+   "same": false,
+   "onlyShuukaijo": false,
+   "asText": "o o i z u m i g a k u e  m a  I  i i k I  u u k a i  o",
+   "asKana": "o o i z u m i g a k u e   o o  i i k I  u u k a i j o"
+  }
+ ],
+ "onlyShuukaijo": [
+  "旭丘地域集会所",
+  "豊玉地域集会所",
+  "中村地域集会所",
+  "桜台地域集会所",
+  "早宮地域集会所",
+  "春日町地域集会所",
+  "北町地域集会所",
+  "土支田中央地域集会所",
+  "土支田地域集会所",
+  "南田中地域集会所",
+  "練馬高野台駅前地域集会所",
+  "三原台地域集会所",
+  "石神井台みどり地域集会所",
+  "上石神井南地域集会所",
+  "上石神井北地域集会所",
+  "東大泉中央地域集会所",
+  "東大泉地域集会所",
+  "南大泉地域集会所",
+  "大泉北地域集会所",
+  "大泉町地域集会所",
+  "関町地域集会所"
+ ],
+ "differentTowns": [
+  {
+   "town": "旭丘",
+   "kana": "アサヒガオカ",
+   "same": false
+  },
+  {
+   "town": "旭町",
+   "kana": "アサヒチョウ",
+   "same": false
+  },
+  {
+   "town": "大泉学園町",
+   "kana": "オオイズミガクエンチョウ",
+   "same": false
+  },
+  {
+   "town": "向山",
+   "kana": "コウヤマ",
+   "same": false
+  },
+  {
+   "town": "小竹町",
+   "kana": "コタケチョウ",
+   "same": false
+  },
+  {
+   "town": "栄町",
+   "kana": "サカエチョウ",
+   "same": false
+  },
+  {
+   "town": "高野台",
+   "kana": "タカノダイ",
+   "same": false
+  },
+  {
+   "town": "立野町",
+   "kana": "タテノチョウ",
+   "same": false
+  },
+  {
+   "town": "谷原",
+   "kana": "ヤハラ",
+   "same": false
+  }
+ ]
+}

@@ -2,3 +2,11 @@ node_modules/
 dist/
 .env*
 *.log
+data/raw/
+public/vendor/
+test-results/
+playwright-report/
+.cache/
+data/_r.txt
+.artifacts/
+data/_*.txt
