@@ -11,6 +11,7 @@ const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as 
 const base = import.meta.env.BASE_URL;
 
 let data: Dataset | undefined;
+let dataReady: ReturnType<typeof loadData> | undefined;
 let lastSpeech = '';
 let map: LeafletMap | undefined;
 let pin: CircleMarker | undefined;
@@ -92,8 +93,12 @@ async function say(text: string): Promise<void> {
   }
 }
 
-function guideAt(point: Point, label: string): void {
-  if (!data) return;
+async function guideAt(point: Point, label: string): Promise<void> {
+  if (!data) {
+    setStatus('where-status', 'データを読み込んでいます…');
+    try { await dataReady; } catch { /* 下で知らせる */ }
+  }
+  if (!data) { setStatus('where-status', 'データを読み込めませんでした。通信のある所で一度開いてください。'); return; }
   setStatus('where-status', label);
   const r = evaluate(point, data);
   if (map && L) {
@@ -108,7 +113,7 @@ function locate(): void {
   if (!('geolocation' in navigator)) { setStatus('where-status', 'この端末では位置を取れません。地図か町から選んでください。'); return; }
   setStatus('where-status', '位置を調べています…（GPS は通信がなくても使えます）');
   navigator.geolocation.getCurrentPosition(
-    pos => guideAt({ lat: pos.coords.latitude, lon: pos.coords.longitude }, `今いる場所（誤差 約${Math.round(pos.coords.accuracy)}m）で案内します。`),
+    pos => void guideAt({ lat: pos.coords.latitude, lon: pos.coords.longitude }, `今いる場所（誤差 約${Math.round(pos.coords.accuracy)}m）で案内します。`),
     err => setStatus('where-status', `位置を取れませんでした（${err.code === err.PERMISSION_DENIED ? '位置情報の利用が許可されていません' : '時間切れか圏外'}）。地図か町から選んでください。`),
     { enableHighAccuracy: true, timeout: 20_000, maximumAge: 60_000 },
   );
@@ -118,7 +123,9 @@ async function showMap(): Promise<void> {
   unlockAudio();
   $('map').hidden = false;
   $('map-note').hidden = false;
-  if (map || !data) { map?.invalidateSize(); return; }
+  if (map) { map.invalidateSize(); return; }
+  if (!data) { try { await dataReady; } catch { /* 下で知らせる */ } }
+  if (!data || map) return;
   L = await import('leaflet');
   map = L.map('map', { preferCanvas: true }).setView([35.745, 139.62], 13);
   L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
@@ -139,7 +146,7 @@ async function showMap(): Promise<void> {
       radius: 5, weight: 1, color: '#1b5e20', fillColor: s.hazards.flood ? '#43a047' : '#bdbdbd', fillOpacity: 0.95,
     }).bindTooltip(`${s.name}${s.hazards.flood ? '' : '（洪水は対象外）'}`).addTo(map);
   }
-  map.on('click', e => guideAt({ lat: e.latlng.lat, lon: e.latlng.lng }, '地図で選んだ場所で案内します。'));
+  map.on('click', e => void guideAt({ lat: e.latlng.lat, lon: e.latlng.lng }, '地図で選んだ場所で案内します。'));
 }
 
 function setupTowns(towns: Town[]): void {
@@ -149,7 +156,7 @@ function setupTowns(towns: Town[]): void {
     if (!select.value) return;
     unlockAudio();
     const [lat, lon, town] = select.value.split(',');
-    guideAt({ lat: Number(lat), lon: Number(lon) }, `${town}の中の避難場所の平均の位置で案内します（目安）。`);
+    void guideAt({ lat: Number(lat), lon: Number(lon) }, `${town}の中の避難場所の平均の位置で案内します（目安）。`);
   });
 }
 
@@ -178,7 +185,8 @@ async function main(): Promise<void> {
   $('replay').addEventListener('click', () => { unlockAudio(); void say(lastSpeech); });
   $('stop').addEventListener('click', () => { stopSpeech(); setStatus('speech-status', '止めました'); });
   try {
-    const loaded = await loadData();
+    dataReady = loadData();
+    const loaded = await dataReady;
     data = loaded.data;
     setupTowns(loaded.towns);
     $('sources').replaceChildren(...loaded.sources.map(s => {
