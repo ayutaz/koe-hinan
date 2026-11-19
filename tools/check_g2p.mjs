@@ -38,7 +38,11 @@ for (const s of data.shelters) {
 const towns = JSON.parse(await readFile(resolve(root, 'public/data/towns.json'), 'utf8'));
 const townRows = towns.map(t => ({ town: t.town, kana: t.kana, same: loose(phones(t.town)) === loose(phones(t.kana)) }));
 
+// 読み仮名を合成に渡したとき、声のモデルに無い記号として落ちる文字がないか
+const dropped = data.shelters.map(s => ({ name: s.name, dropped: [...phonemizer.phonemize(s.kana, 'ja').droppedSymbols] })).filter(x => x.dropped.length);
+
 const report = {
+  readingsWithDroppedSymbols: dropped,
   checkedAt: new Date().toISOString().slice(0, 10),
   engine: 'piper-plus 0.9.1 WasmPhonemizer（OpenJTalk 系の日本語辞書）・声 piper-plus-tsukuyomi-chan の config',
   shelters: data.shelters.length,

@@ -1,4 +1,5 @@
 {
+ "readingsWithDroppedSymbols": [],
  "checkedAt": "2026-11-19",
  "engine": "piper-plus 0.9.1 WasmPhonemizer（OpenJTalk 系の日本語辞書）・声 piper-plus-tsukuyomi-chan の config",
  "shelters": 163,
