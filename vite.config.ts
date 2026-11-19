@@ -13,6 +13,7 @@ export default defineConfig({
     async closeBundle() {
       const directory = resolve('dist');
       const entries = await readdir(directory, { recursive: true, withFileTypes: true });
+      // demo/ はデモ動画（アプリは使わない）なので端末にためない
       const files = entries.filter(entry => entry.isFile() && entry.name !== 'sw.js')
         .map(entry => relative(directory, resolve(entry.parentPath, entry.name)).replaceAll('\\', '/')).sort();
       const digest = createHash('sha256');

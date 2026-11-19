@@ -1,7 +1,7 @@
 """録画（screen.webm）に、読み上げの音声（*.wav）を timeline.json の時刻で重ねて mp4 にする。
 
 使い方: uv run --no-project python tools/compose_demo.py  （ffmpeg が要る）
-出力: docs/demo.mp4（アプリの配布物には入れない）
+出力: public/demo/demo.mp4（公開ページで再生できる。Service Worker の保存対象からは外す）
 """
 import json
 import os
@@ -9,7 +9,7 @@ import subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = os.path.join(ROOT, ".artifacts", "demo")
-OUT = os.path.join(ROOT, "docs", "demo.mp4")
+OUT = os.path.join(ROOT, "public", "demo", "demo.mp4")
 
 t = json.load(open(os.path.join(D, "timeline.json"), encoding="utf-8"))
 args = ["ffmpeg", "-y", "-i", os.path.join(D, "screen.webm")]

@@ -79,3 +79,5 @@ a { color: var(--accent); }
   .top h1 { font-size: 1rem; }
   .map { height: 320px; }
 }
+/* 上の帯（sticky）に見出しが隠れないように */
+.card, h2, h3, #nearby { scroll-margin-top: 72px; }
